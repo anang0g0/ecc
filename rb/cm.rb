@@ -1,4 +1,5 @@
 #! /usr/local/bin/ruby
+# coding: cp932
 # /home/test/hp13/ffftp/cm.rb
 # Created: Oct 03,2006 19:00:33
 # Author: tcshacina
@@ -1445,7 +1446,7 @@ jj=[3375,-8000,-54000,-32768,-884736,-12288000,-884736000,-147197952000,-2625374
 		print "v=",@V,"\n"
 		 if(@V == 0)
 		  bit(mm); print "-bit prime\n"; w();
-		  print "(•ÅÕ•)≤≤!!\n";
+		  print "ii!\n";
 		 end
 		 if(@V == -1)
 		  #p=inv(@CRV_a,@CRV_p)*(-3)%@CRV_p
