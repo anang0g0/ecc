@@ -1,78 +1,16 @@
-# define the C compiler to use
-CC = gcc
+FLAGS = -lm -O3 -Wall -Wextra -Wpedantic
 
-# define any compile-time flags
-CFLAGS = -ansi -Wall -O3
-ifeq ($(MAKECMDGOALS),debug)
-	CFLAGS = -ansi -Wall -g -ggdb -DDEBUG
-else 
-	ifeq ($(MAKECMDGOALS),profile)
-		CFLAGS = -ansi -Wall -g -pg
-    endif
-endif
+all: tests c_examples cpp_examples bigint.o
+	rm bigint.o
 
-# define any directories containing header files other than /usr/include
-#
-INCLUDES = 
+bigint.o:
+	gcc -c bigint.c -o bigint.o $(FLAGS)
 
-# define library paths in addition to /usr/lib
-#   if I wanted to include libraries not in /usr/lib I'd specify
-#   their path using -Lpath, something like:
-#LFLAGS = -L/home/newhall/lib  -L../lib
+tests: bigint.o
+	gcc tests.c bigint.o -o tests $(FLAGS)
 
-# define any libraries to link into executable:
-#   if I want to link in libraries (libx.so or libx.a) I use the -llibname 
-#   option, something like (this will link in libmylib.so and libm.so:
-#LIBS = -lmylib -lm
+c_examples: bigint.o
+	gcc c_examples.c bigint.o -o c_examples $(FLAGS)
 
-# define the C source files
-SRCS = main.c big_integer.c
-
-# define the C object files 
-#
-# This uses Suffix Replacement within a macro:
-#   $(name:string1=string2)
-#         For each word in 'name' replace 'string1' with 'string2'
-# Below we are replacing the suffix .c of all words in the macro SRCS
-# with the .o suffix
-#
-OBJS = $(SRCS:.c=.o)
-
-
-# define the executable file 
-MAIN = bigint
-
-#
-# The following part of the makefile is generic; it can be used to 
-# build any executable just by changing the definitions above and by
-# deleting dependencies appended to the file from 'make depend'
-#
-
-.PHONY: depend clean
-
-build: $(MAIN)
-debug: $(MAIN)
-profile: $(MAIN)
-
-$(MAIN): $(OBJS) 
-	$(CC) $(CFLAGS) $(INCLUDES) -o $(MAIN) $(OBJS) $(LFLAGS) $(LIBS)
-
-# this is a suffix replacement rule for building .o's from .c's
-# it uses automatic variables $<: the name of the prerequisite of
-# the rule(a .c file) and $@: the name of the target of the rule (a .o file) 
-# (see the gnu make manual section about automatic variables)
-.c.o:
-	$(CC) $(CFLAGS) $(INCLUDES) -c $<  -o $@
-
-clean:
-	$(RM) *.o *~ $(MAIN)
-	$(RM) $(OBJS)
-	$(RM) -rf *.dSYM
-	$(RM) $(MAIN)
-	$(RM) $(MAIN).exe
-
-
-depend: $(SRCS)
-	makedepend $(INCLUDES) $^
-
-# DO NOT DELETE
+cpp_examples: bigint.o
+	g++ cpp_examples.cpp bigint.o -o cpp_examples $(FLAGS)
