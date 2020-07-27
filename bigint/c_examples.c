@@ -14,9 +14,9 @@ int main(){
     bigint_init(c);
 
     /* create bigint from string */
-    bigint_from_str(a, "123456789");
-    bigint_from_str(b, "987654321");
-
+    bigint_from_str(a, "12345678900000000000000000000000003");
+    bigint_from_str(b, "98765432100000000000000000000000001");
+    c=a^b;
     /* c = a * b */
     /* first parameter is destination parameter */
     bigint_mul(c, a, b);

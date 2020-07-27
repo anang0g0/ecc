@@ -80,8 +80,7 @@ void b2s(BigInt a,char b[1000]){
   printf("count=%d\n",count);
   
   a.write(std::cout) << std::endl;
-  //  exit(1);
-  //for(i=0;i<count;i++){
+
   while(a>0){
     if(a%10==0){
       strcat(b,"0");

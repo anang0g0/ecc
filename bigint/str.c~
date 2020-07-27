@@ -1,0 +1,6 @@
+void main(void){
+  unsigned long a;
+  a=strtoul("0xff",0,10,10);
+  printf("%u",a);
+
+}

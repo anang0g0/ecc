@@ -20,7 +20,12 @@ int main(){
     // BigInts can be created from strings or from integers
     BigInt a = "-1137531041259095389425522063651335971086542522289";
     BigInt b = "-9214001518046086468566115579527473139501";
+    BigInt v="0x";
 
+    v.write(std::cout << "Big prime: ") << std::endl;
+
+    exit(1);
+    
     // Available operators:
     // +, -, *, /, %, <<, >>
     // +=, -=, *=, /=, %=, <<=, >>=, ++, --
