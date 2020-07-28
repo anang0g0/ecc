@@ -45,11 +45,9 @@ typedef struct{
 
 SIDH init(SIDH a, int i){
 
-  if(i<1){
-    printf("i>0\n");
-    exit(1);
-  }
-  
+
+  assert(i>0);
+
   if(i==1){
 
     printf("initializasation sp434\n");
@@ -319,7 +317,7 @@ int main(){
   SIDH sp751;
 
   //printf("aa");
-  sp503=init(sp503,2);
+  sp503=init(sp503,1);
   sp503.p.write(std::cout) << std::endl;
   //  puts(BigInt_write(buf, sizeof(buf), sp434.p));
   //  setup(1);
