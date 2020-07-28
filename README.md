@@ -30,7 +30,7 @@ https://github.com/dconnolly/msr-sidh
 二次の拡大体であるにもかかわらず、虚数が出てくることから、これが虚二次体上の整数論と関係があることに気付かないと意味不明なままです。
 後、j-不変量なんてものも出てくるので要注意です。
 
-https://github.com/Microsoft/PQCrypto-SIDH
+https://github.com/Microsoft/PQCrypto-SIDH　（今回挑戦している仕様書）
 
 こういう面倒なことはできるならやりたくない。
 符号なら小さな数をたくさん集めるだけで安全な暗号になる。
