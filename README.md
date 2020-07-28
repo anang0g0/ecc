@@ -1,5 +1,13 @@
 # ecc
 
+20200728
+
+bigint.cの使い始めということもあり、まずは楕円曲線のパラメータを設定するプログラムを書いてみました。
+
+bigint\sidh.c
+
+です。
+
 20200727
 
 http://cacr.uwaterloo.ca/techreports/2014/cacr2014-20.pdf
