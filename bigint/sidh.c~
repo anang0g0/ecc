@@ -37,7 +37,7 @@ typedef struct{
   int n;
   int p;
   int q;
-  char s[];
+  char s[200];
 
 } tor;
 
@@ -225,14 +225,12 @@ void tor_set(int i){
     memcpy(atp434.s,a,sizeof(a));
   
 
-
   tor btp434;
   
   btp434.n=136;
   btp434.p=5322;
   btp434.q=5282;
-  memcpy(btp434.s,b,sizeof(b));
-  }
+  memcpy(btp434.s,b,sizeof(b)); }
 
 
   if(i==2){
